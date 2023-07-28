@@ -9,14 +9,14 @@ function Menu(){
         <ul>
             <h2>
             <Link href="/"><button>Home</button></Link>&nbsp;
-            <Link href="/contacts"><button>Contacts</button></Link>
+            {/* <Link href="/contacts"><button>Contacts</button></Link> */}
             </h2> 
         </ul>
     )
 }
 
 export default function Layout({children}){
-    console.log(children)
+    // console.log(children)
     return(
         <div className={styles.container}>
             {/*insert Menu here*/}

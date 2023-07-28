@@ -59,6 +59,14 @@ export default function Home() {
               Learn angular
             </h2>
           </Link>
+          <Link href="/news/"
+            className={styles.card}
+          >
+            <h2>
+              Top stories
+            </h2>
+
+          </Link>
 
 
 
