@@ -3,10 +3,20 @@ import Link from 'next/link'
 import { Inter } from 'next/font/google'
 import styles from '../styles/Home.module.css'
 import Layout from '../components/Layout'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const[query, getQuery]=useState();
+  const router = useRouter();
+  const handleOnChange = e => getQuery(e.target.value)
+  const handleOnSubmit = e => {
+    e.preventDefault()
+    router.push(`/news/${query}`)
+  }
+
   return (
     <Layout>
 
@@ -18,14 +28,18 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
 
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
+       <h1 className={styles.title}>News fEED</h1>
 
-        </div>
+       <form onSubmit={handleOnSubmit}>
+        <input type="text" onChange={handleOnChange}/>
+       </form>
 
+       <div className={styles.grid}>
+        <Link href="/news/" className = {styles.card}>
+          <h2>Top Stories</h2>
+        </Link>
+
+       </div>
 
         <div className={styles.grid}>
           <Link href="/learn/next"
