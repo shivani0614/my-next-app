@@ -9,6 +9,19 @@ import { useRouter } from 'next/router'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const links = [
+    {
+      title: "Top Stories", 
+      desc: "Read articles currently on the homepage of the New York Times",
+      path: "/top-stories"
+    }, 
+    {
+      title: "Popular", 
+      desc: "Read the most popular articles on the New York Times",
+      path: "/popular"
+    }
+  ];
+    
   const[query, getQuery]=useState();
   const router = useRouter();
   const handleOnChange = e => getQuery(e.target.value)
@@ -33,6 +46,18 @@ export default function Home() {
        <form onSubmit={handleOnSubmit}>
         <input type="text" onChange={handleOnChange}/>
        </form>
+       <div className={styles.grid}>
+          {links.map(link => {
+            return( 
+            <Link key={link.path} href={`news/path/${link.path}`} className={styles.card}>
+              
+                <h2>{link.title} &rarr;</h2>
+                <p>{link.desc}</p>
+            
+            </Link>)
+          })}
+         
+        </div>
 
        <div className={styles.grid}>
         <Link href="/news/" className = {styles.card}>
