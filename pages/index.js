@@ -13,12 +13,17 @@ export default function Home() {
     {
       title: "Top Stories",
       desc: "Read articles currently on the homepage of the New York Times",
-      path: "/top-stories",
+      path: "/news/path/top-stories",
     },
     {
       title: "Popular",
       desc: "Read the most popular articles on the New York Times",
-      path: "/popular",
+      path: "/news/path/popular",
+    },
+    {
+      title: "Sections",
+      desc: "get an up-to-the minute",
+      path: "/sections",
     },
   ];
 
@@ -49,7 +54,8 @@ export default function Home() {
             return (
               <Link
                 key={link.path}
-                href={`news/path/${link.path}`}
+                // href={`news/path/${link.path}`}
+                href={`${link.path}`}
                 className={styles.card}
               >
                 <h2>{link.title} &rarr;</h2>

@@ -4,7 +4,7 @@ import { handler } from "../../api";
 
 // for next js HEAD component is very important for SEO,It allows
 // to create rich and azure friendly content
-function News({ results, title }) {
+function Posts({ results, title }) {
   return (
     <Layout>
       <Head>
@@ -64,4 +64,4 @@ export async function getStaticProps({ params }) {
       }
   }
 }
-export default News;
+export default Posts;
