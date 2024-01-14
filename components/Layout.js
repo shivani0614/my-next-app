@@ -1,5 +1,7 @@
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
+// import styles from "../styles/Home.module.css";
+import styles from "../styles/Layout.module.css";
+import {useRouter} from "next/router";
 //import contacts from "../api/contacts";
 /* menu component Here */
 
@@ -9,7 +11,7 @@ function Menu() {
     <ul>
       <h2>
         <Link href="/">
-          <button>Home</button>
+          Home
         </Link>
         &nbsp;
         {/* <Link href="/contacts"><button>Contacts</button></Link> */}
@@ -34,14 +36,16 @@ export default function Layout({ children }) {
     },
   ];
   // console.log(children)
+  const router = useRouter();
   return (
     <div className={styles.container}>
       {/*insert Menu here*/}
       <Menu></Menu><br></br>
       {links.map((link) => {
+        const className = link.path === router.asPath ? styles.active : styles.link
         return (
           <Link href={link.path}>
-            <button>{link.title} {" "} </button>
+            {link.title} {" "} 
           </Link>
         );
       })}
